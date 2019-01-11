@@ -12,6 +12,6 @@ export interface AppState {
 
 export const reducers: ActionReducerMap<AppState> = {
     usersList: listUsersReducer.ListUSersReducer,
-    user: UserReducer.PostReducer
+    user: UserReducer.UsersReducer
 
 }

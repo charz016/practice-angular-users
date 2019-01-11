@@ -2,18 +2,16 @@ import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { PostDetailComponent } from "./post-detail.component";
-import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
 import { Routes, RouterModule } from '@angular/router';
-import { PostListModule } from '../../components/posts-list/posts-list.module';
+import { CommentsListModule } from '../../components/comments-list/comments.module';
+import {MatCardModule} from '@angular/material/card';
 
 
 const COMMON_IMPORTS = [
     FlexLayoutModule,
     CommonModule,
-    MatIconModule,
-    MatListModule,
-    PostListModule
+    MatCardModule,
+    CommentsListModule
 ];
 
 const COMMON_DECLARATIONS = [PostDetailComponent];

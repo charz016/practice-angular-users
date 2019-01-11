@@ -11,7 +11,11 @@ export class PostsService {
 
   constructor(private http: HttpClient) { }
 
-  getALL() {
-    return this.http.get<Posts[]>(this.url);
+  getById(id) {
+    return this.http.get<Posts>(`${this.url}/${id}`);
+  }
+
+  getByIdUser(id) {
+    return this.http.get<Posts[]>(`${this.url}?userId=${id}`);
   }
 }

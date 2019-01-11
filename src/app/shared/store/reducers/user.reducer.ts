@@ -10,7 +10,7 @@ export interface State {
 export const initialState: State = {};
 
 
-export function PostReducer(state: State = initialState, actions: fromUser.ActionsUnion): State {
+export function UsersReducer(state: State = initialState, actions: fromUser.ActionsUnion): State {
 
     switch (actions.type) {
         case fromUser.ActionTypes.GetSucessUsers:

@@ -20,6 +20,6 @@ export const selectUsers = createSelector(
 export const selectUserById = (id) => createSelector(
     selectUsers,
     (user) => {
-        return user[id];
+        return user[id - 1];
     }
 );

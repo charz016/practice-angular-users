@@ -4,7 +4,7 @@ import { User } from '../../models/user.model'
 
 
 export enum ActionTypes {
-    GetAllUsers = '[Users] GetAllPost',
+    GetAllUsers = '[Users] GetAllUsers',
     GetSucessUsers = '[Users] GetSucessUsers',
     GetErrorUsers = '[Users] GetErrorUsers',
 }

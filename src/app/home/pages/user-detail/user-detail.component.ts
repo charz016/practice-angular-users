@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./user-detail.component.scss']
 })
 export class UserDetailComponent implements OnInit {
-
+  idUser: string;
   user$: Observable<User>;
 
   constructor(private store: Store<AppState>, private route: ActivatedRoute) {
@@ -20,9 +20,9 @@ export class UserDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    const id = this.route.snapshot.params.id;
-    this.user$ = this.store.select(selectUserById(id));
- 
+    this.idUser = this.route.snapshot.params.id;
+    this.user$ = this.store.select(selectUserById(this.idUser));
+
   }
 
 }

@@ -5,15 +5,15 @@
         </div>
         <div fxFlex="70%" fxFlex.lt-sm="1 1 auto" fxLayoutAlign="center center">
             <div fxFlex="70%" fxFlex.lt-md="95%">
-             <h1>Detail User</h1>
-             <p>Name: {{user.name}}</p>
-             <p>User Name: {{user.email}}</p>
-             <p>City: {{user.address.city}}</p>
-             <p>Phone: {{user.phone}}</p>
-             <p>Website: {{user.website}}</p>
+                <h1>Detail User</h1>
+                <p>Name: {{user.name}}</p>
+                <p>User Name: {{user.email}}</p>
+                <p>City: {{user.address.city}}</p>
+                <p>Phone: {{user.phone}}</p>
+                <p>Website: {{user.website}}</p>
             </div>
         </div>
     </div>
 </div>
 
-<posts-list></posts-list>
+<posts-list [idUser]="idUser"></posts-list>
