@@ -3,10 +3,18 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-  path: "",
-  pathMatch: "full",
-  loadChildren: "./home/home.routing#HomeRoutingModule",
-},
+    path: "",
+    pathMatch: "full",
+    loadChildren: "../app/home/pages/landing/landing.module#LandingModule",
+  },
+  {
+    path: "user-detail",
+    loadChildren: "../app/home/pages/user-detail/user-detail.module#UserDetailModule",
+  },
+  {
+    path: "post-detail",
+    loadChildren: "../app/home/pages/post-detail/post-detail.module#PostDetailModule",
+  }
 ];
 
 @NgModule({

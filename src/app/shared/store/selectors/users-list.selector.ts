@@ -16,3 +16,10 @@ export const selectUsers = createSelector(
         return ids ? ids.map(id => user[id]) : null
     }
 );
+
+export const selectUserById = (id) => createSelector(
+    selectUsers,
+    (user) => {
+        return user[id];
+    }
+);
