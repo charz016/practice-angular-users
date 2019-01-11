@@ -1,3 +1,8 @@
-<p>
-  landing works!
-</p>
+<mat-list>
+    <mat-list-item *ngFor="let user of users$ | async" [routerLink]="['/user-detail', user.id]">
+        <mat-icon mat-list-icon>account_box</mat-icon>
+        <h4 mat-line>{{user.name}}</h4>
+        <p mat-line> {{user.name}} </p>
+        <mat-divider></mat-divider>
+    </mat-list-item>
+</mat-list>
