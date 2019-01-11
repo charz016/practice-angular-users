@@ -1,31 +1,28 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { FlexLayoutModule } from "@angular/flex-layout";
-import { RouterModule, Routes } from '@angular/router';
-import { LandingPage } from "./landing.page";
+import { PostsListComponent } from "./posts-list.component";
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-
-
-const routes: Routes = [
-    { path: '', component: LandingPage },
-];
+import { RouterModule } from '@angular/router';
 
 const COMMON_IMPORTS = [
     FlexLayoutModule,
     CommonModule,
     MatIconModule,
     MatListModule,
+    RouterModule
 ];
 
-const COMMON_DECLARATIONS = [LandingPage];
+const COMMON_DECLARATIONS = [PostsListComponent];
+
 
 @NgModule({
-    imports: [COMMON_IMPORTS, RouterModule.forChild(routes)],
+    imports: [COMMON_IMPORTS],
     declarations: COMMON_DECLARATIONS,
-    exports: COMMON_DECLARATIONS
+    exports: [COMMON_DECLARATIONS]
 })
-export class LandingModule { }
+export class PostListModule { }
 
 export default {
     COMMON_IMPORTS, COMMON_DECLARATIONS
