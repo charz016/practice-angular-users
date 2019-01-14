@@ -9,7 +9,7 @@ import { User } from '../../models/user.model';
 
 
 @Injectable()
-export class Userffects {
+export class UserEffects {
     constructor(private userService: UsersService, private actions$: Actions) { }
 
     @Effect()

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Posts } from '../models/posts.modle';
+import { Post } from '../models/post.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,10 +12,10 @@ export class PostsService {
   constructor(private http: HttpClient) { }
 
   getById(id) {
-    return this.http.get<Posts>(`${this.url}/${id}`);
+    return this.http.get<Post>(`${this.url}/${id}`);
   }
 
   getByIdUser(id) {
-    return this.http.get<Posts[]>(`${this.url}?userId=${id}`);
+    return this.http.get<Post[]>(`${this.url}?userId=${id}`);
   }
 }

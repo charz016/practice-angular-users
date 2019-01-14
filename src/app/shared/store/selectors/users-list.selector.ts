@@ -18,8 +18,8 @@ export const selectUsers = createSelector(
 );
 
 export const selectUserById = (id) => createSelector(
-    selectUsers,
+    selectAllUsers,
     (user) => {
-        return user[id - 1];
+        return user[id];
     }
 );

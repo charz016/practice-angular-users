@@ -1,5 +1,9 @@
-import {Userffects} from './user.effects'
+import { UserEffects } from './user.effects'
+import { PostEffects } from './post.effects'
+import { CommentEffects } from './comment.effects'
 
-export const effects=[
-    Userffects,
+export const effects = [
+    UserEffects,
+    PostEffects,
+    CommentEffects
 ]

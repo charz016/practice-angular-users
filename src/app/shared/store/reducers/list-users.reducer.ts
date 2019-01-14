@@ -8,7 +8,7 @@ export interface State {
     //ids users
     ids: number[];
     // error message
-    error: null;
+    error: any;
 }
 
 export const initialState: State = {
