@@ -6,10 +6,11 @@ import { Comments } from 'src/app/shared/models/comment.model';
 import { CommentsService } from 'src/app/shared/services/comments.service';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/shared/store/reducers';
-import *as fromPost from '../../../shared/store/actions/posts.actions';
 import *as fromComment from '../../../shared/store/actions/comments.actions';
 import { Observable } from 'rxjs';
-import { selectCommentByPost } from 'src/app/shared/store/selectors/comment.selector';
+import { selectCurrentPost } from 'src/app/shared/store/selectors/post.selector';
+import { selectAllComments } from 'src/app/shared/store/selectors/comment.selector';
+
 
 
 @Component({
@@ -19,19 +20,16 @@ import { selectCommentByPost } from 'src/app/shared/store/selectors/comment.sele
 })
 export class PostDetailComponent implements OnInit {
   idPost: String;
-  post: Post;
+  post$: Observable<Post>
   comments$: Observable<Comments[]>;
 
   constructor(private postService: PostsService, private route: ActivatedRoute, private commentService: CommentsService, private store: Store<AppState>) {
-    this.comments$ = this.store.select(selectCommentByPost)
+    this.comments$ = this.store.select(selectAllComments)
+    this.idPost = this.route.snapshot.params.id;
+    this.post$ = this.store.select(selectCurrentPost, { id: this.idPost });
   }
 
   ngOnInit() {
-    this.idPost = this.route.snapshot.params.id;
-    this.postService.getById(this.idPost).subscribe(data => {
-      this.post = data;
-    });
-
     this.store.dispatch(new fromComment.GetComments(this.idPost));
   }
 

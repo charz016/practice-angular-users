@@ -1,18 +1,20 @@
 import * as fromPosts from '../actions/posts.actions';
 import { Post } from '../../models/post.model';
+import { EntityAdapter, EntityState, createEntityAdapter } from '@ngrx/entity';
 
-export interface State {
+export interface State extends EntityState<Post> {
+    selectedPostId: number | null
     loading: boolean;
-    posts: Post[];
     error: any;
-
 };
 
-const initialState: State = {
+export const postAdapter: EntityAdapter<Post> = createEntityAdapter<Post>();
+
+const initialState: State = postAdapter.getInitialState({
+    selectedPostId: null,
     loading: false,
-    posts: null,
     error: null
-};
+});
 
 export function PostReducer(state: State = initialState, action: fromPosts.ActionsUnions): State {
     switch (action.type) {
@@ -24,16 +26,16 @@ export function PostReducer(state: State = initialState, action: fromPosts.Actio
             };
         }
         case fromPosts.ActionTypes.GetPostsSuccess: {
-            return {
+            return postAdapter.addAll(action.payload, {
                 ...state,
-                loading: false,
-                posts: action.payload
-            };
+                loading: false
+            });
         }
 
         case fromPosts.ActionTypes.GetPostsError: {
             return {
                 ...state,
+                entities: {},
                 loading: false,
                 error: action.payload
             };

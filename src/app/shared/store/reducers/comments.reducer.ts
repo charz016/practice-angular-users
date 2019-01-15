@@ -1,18 +1,23 @@
 import * as fromComment from '../actions/comments.actions';
 import { Comments } from '../../models/comment.model';
+import { EntityAdapter, EntityState, createEntityAdapter } from '@ngrx/entity';
 
-export interface State {
+export interface State extends EntityState<Comments> {
+    selectedCommentId: number | null
     loading: boolean,
-    comments: Comments[],
     error: any,
 
 };
 
-const initialState: State = {
+export const commentAdapter: EntityAdapter<Comments> = createEntityAdapter<Comments>();
+
+const initialState: State = commentAdapter.getInitialState({
+    selectedCommentId: null,
     loading: false,
-    comments: null,
     error: null,
-};
+})
+
+
 
 export function CommentReducer(state: State = initialState, action: fromComment.ActionsUnions): State {
     switch (action.type) {
@@ -24,18 +29,17 @@ export function CommentReducer(state: State = initialState, action: fromComment.
             };
         }
         case fromComment.ActionTypes.GetCommentsSuccess: {
-            return {
+            return commentAdapter.addAll(action.payload, {
                 ...state,
-                loading: false,
-                comments:action.payload
-            };
+                loading: false
+            });
         }
-
         case fromComment.ActionTypes.GetCommentsError: {
             return {
                 ...state,
+                entities: {},
                 loading: false,
-                error:action.payload
+                error: action.payload
             };
         }
 
