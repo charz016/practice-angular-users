@@ -6,6 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { Routes, RouterModule } from '@angular/router';
 import { PostListModule } from '../../components/posts-list/posts-list.module';
+import { MatCardModule } from '@angular/material/card';
 
 
 const COMMON_IMPORTS = [
@@ -13,7 +14,8 @@ const COMMON_IMPORTS = [
     CommonModule,
     MatIconModule,
     MatListModule,
-    PostListModule
+    PostListModule,
+    MatCardModule
 ];
 
 const COMMON_DECLARATIONS = [UserDetailComponent];

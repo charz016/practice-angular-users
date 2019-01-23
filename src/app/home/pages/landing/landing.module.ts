@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LandingPage } from "./landing.page";
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import {MatCardModule} from '@angular/material/card';
 
 
 const routes: Routes = [
@@ -15,7 +16,7 @@ const COMMON_IMPORTS = [
     FlexLayoutModule,
     CommonModule,
     MatIconModule,
-    MatListModule,
+    MatCardModule
 ];
 
 const COMMON_DECLARATIONS = [LandingPage];

@@ -1,3 +1,13 @@
-mat-list-item{
-    cursor: pointer;
+.section-users{
+min-height: 80vh;
 }
+
+mat-card{
+    cursor: pointer;
+    margin: 20px;
+}
+
+.example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }

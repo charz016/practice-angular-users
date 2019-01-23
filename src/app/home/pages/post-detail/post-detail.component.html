@@ -1,12 +1,12 @@
-
-
 <div *ngIf="post$ | async as post">
-    <pre>{{post | json}}</pre>
     <mat-card>
         <mat-card-header>
           <mat-card-title>Title: {{post?.title}}</mat-card-title>
         </mat-card-header>
         <mat-card-content>
+            <p>
+                ID: {{post?.id}}
+               </p>
           <p>
            Post: {{post?.body}}
           </p>

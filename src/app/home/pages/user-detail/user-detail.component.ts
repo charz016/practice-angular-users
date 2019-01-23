@@ -5,7 +5,7 @@ import { User } from 'src/app/shared/models/user.model';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import *as fromPost from '../../../shared/store/actions/posts.actions';
-import { selectAllPosts } from 'src/app/shared/store/selectors/post.selector';
+import { selectAllPosts, postLoading } from 'src/app/shared/store/selectors/post.selector';
 import { Post } from 'src/app/shared/models/post.model';
 import { selectCurrentUser } from 'src/app/shared/store/selectors/user.selector';
 

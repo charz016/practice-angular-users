@@ -1,19 +1,40 @@
-<div *ngIf="user$ | async; let user" style="min-height: 30vh">
-    <div fxLayout.lt-sm="column" fxLayout="row">
-        <div fxFlex="30%" fxFlex.lt-sm="1 1 auto" fxLayoutAlign="center center">
-            <img src="../../../../assets/img/user.png" alt="user_avatar" width="120" height="120">
-        </div>
-        <div fxFlex="70%" fxFlex.lt-sm="1 1 auto" fxLayoutAlign="center center">
-            <div fxFlex="70%" fxFlex.lt-md="95%">
-                <h1>Detail User</h1>
-                <p>Name: {{user.name}}</p>
-                <p>User Name: {{user.email}}</p>
-                <p>City: {{user.address.city}}</p>
-                <p>Phone: {{user.phone}}</p>
-                <p>Website: {{user.website}}</p>
-            </div>
-        </div>
-    </div>
-</div>
+<section class="user-detail">
+    <div fxLayout="row" fxLayout.lt-md="column">
+        <div fxLayout="column" fxLayoutAlign="center center" fxFlex="30%" fxFlex.lt-md="1 1 auto" *ngIf="user$ | async as user">
 
-<posts-list [posts]="posts$ | async"></posts-list>
+            <img src="https://www.w3schools.com/css/paris.jpg" alt="Paris" width="300" height="300" style="border-radius: 25%;margin-top: 20px;">
+
+            <p>
+                <mat-icon>face</mat-icon>{{user.name}}
+            </p>
+
+            <p>
+                <mat-icon>account_box</mat-icon>{{user.username}}
+            </p>
+
+            <p>
+                <mat-icon>mail_outline</mat-icon>{{user.email}}
+            </p>
+
+            <p>
+                <mat-icon>call</mat-icon>{{user.phone}}
+            </p>
+
+            <p>
+                <mat-icon>web</mat-icon>{{user.website}}
+            </p>
+            
+            <p>
+                <mat-icon>person_pin_circle</mat-icon>{{user.address.city}} ,{{user.address.street}}
+            </p>
+
+        </div>
+
+
+        <div fxFlex fxFlex.lt-md="1 1 auto">
+            <posts-list [posts]="posts$ | async"></posts-list>
+        </div>
+
+    </div>
+
+</section>

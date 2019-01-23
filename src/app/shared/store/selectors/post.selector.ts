@@ -18,3 +18,8 @@ export const selectCurrentPost = createSelector(
     selectPostsEntities,
     (postsEntities, props) => postsEntities[props.id]
 );
+
+export const postLoading= createSelector(
+    selectPostState,
+    state=> state.loading
+)
